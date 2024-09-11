@@ -1,0 +1,61 @@
+DATASET:
+  TRAIN_IMAGE_PATH: /data/spacenet/CROP_448_OVERLAP_0/image
+  TEST_IMAGE_PATH: /data/spacenet/CROP_448_OVERLAP_0/image
+  TRAIN_JSON_PATH: /data/spacenet/CROP_448_OVERLAP_0/train_spacenet.json
+  VAL_JSON_PATH: /data/spacenet/val_spacenet.json
+  TEST_JSON_PATH: /data/spacenet/CROP_448_OVERLAP_0/train_spacenet.json
+  GT_PICKLE_PATH: /data/spacenet/gt/gt_graph
+  IMAGE_SHAPE: [448, 448]
+  AUGMENT: default_aug
+
+TRAIN:
+  EPOCHS: 200
+  NUM_WORKERS: 4
+  SAVE_INTERVAL: 5
+  EPOCH_TO_START_VALID: 0
+  ACCUMULATE_BATCH_NUM: 4
+  BATCH_SIZE: 4
+  ONLY_SAVE_BEST_MODEL: True
+  OPTIMIZER:
+    NAME: AdamW
+    LR:
+      RATE: 0.01
+      BACKBONE_RATE: 0.01
+      MOMENTUM: 0.95
+      WEIGHT_DECAY: 0.0002
+      BETA1: 0.5
+      BETA2: 0.999
+  LOSS:
+    CRITERION_LOC: weighted_modifiedfocalloss
+    CRITERION_DIR_PROB: weighted_modifiedfocalloss
+    CRITERION_DIR_VEC: weighted_mseloss
+    LAMBDA_LOC: 1 # weight for location loss
+    LAMBDA_DIR_PROB: 5 # weight for direction probability loss
+    LAMBDA_DIR_VEC: 10 # weight for direction vector loss
+  SCHEDULER:
+    NAME: ReduceLROnPlateau
+    FACTOR: 0.5
+    PATIENCE: 3
+    THRESHOLD: 0.01
+    MIN_LR: 0.00005
+    
+VAL:
+  BATCH_SIZE: 1
+  CROP_SIZE: 448 # >= image_size means infer at a time without patching
+  OVERLAP_SIZE: 128
+  NUM_WORKERS: 2
+
+MODEL:
+  NAME: HRNetDetector # SingleHRNetDetector
+  BACKBONE: hr-w48
+  IMG_CH: 3
+  PRETRAINED_FLAG: False
+
+OTHER_ARGS:
+  MAX_KEYPOINT: 100 # max number of keypoints
+  RADIUS: 3 # radius in gt generator
+  NMS_POOLSIZE: 23 # maxpool size in pseudo  nms in decoder
+  LOC_THRESHOLD: 0.35 # threshold for determining valid location
+  DIR_THRESHOLD: 0.3 # threshold for determining valid direction
+
+ROOT_PATH: "/home/RoadVec_exp/spacenet/KDGraph"
