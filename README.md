@@ -2,7 +2,7 @@
 
 Official code for KDGraph.
 
-Use the following code for training on SpaceNet3:
+Use the following command for training on SpaceNet3:
 ```Python
 python main.py --config ./config.yaml --mode train
 ```
