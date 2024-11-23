@@ -14,15 +14,15 @@ from shutil import copyfile
 import math
 import torch.distributed
 
-from .utils.aug_cfg import default_aug, advanced_aug, test_aug
+from utils.aug_cfg import default_aug, advanced_aug, test_aug
 from torch.nn.parallel import DistributedDataParallel as DDP
-from .model import build_model
-from .utils.criterion import DetectorLoss
+from model import build_model
+from utils.criterion import DetectorLoss
 
-from .utils.evaluator import  APLSEvaluator
-from .utils.dataset import KeypointDetectionDataset
-from .utils.util import  keypoint_visualizer, vectorization_visualizer_for_graph
-from .utils.patch_expansion import patch_inference
+from utils.evaluator import  APLSEvaluator
+from utils.dataset import KeypointDetectionDataset
+from utils.util import  keypoint_visualizer, vectorization_visualizer_for_graph
+from utils.patch_expansion import patch_inference
 
 
 class Solver:
