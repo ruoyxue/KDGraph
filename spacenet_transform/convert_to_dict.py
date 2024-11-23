@@ -128,8 +128,8 @@ def convert_to_dict_geojson(geojson_path, image_path, save_dir):
 
 if __name__ == "__main__":
     convert_to_dict(
-        json_path="/data/spacenet/crop448_overlap128/test.json",
-        image_path="/data/spacenet/crop448_overlap128/image",
-        save_dir="/data/spacenet/crop448_overlap128/gt/gt_graph"
+        json_path="/data/spacenet/spacenet.json",
+        image_path="/data/spacenet/test/image",
+        save_dir="/data/spacenet/test/gt/gt_graph"
     )
    

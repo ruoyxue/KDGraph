@@ -3,7 +3,6 @@ from torch import nn
 
 
 class ChannelAttention(nn.Module):
-    
     def __init__(self, in_planes, ratio=16):
         super(ChannelAttention, self).__init__()
         self.avg_pool = nn.AdaptiveAvgPool2d(1)
@@ -19,8 +18,8 @@ class ChannelAttention(nn.Module):
         out = avg_out + max_out
         return self.sigmoid(out)
 
+
 class SpatialAttention(nn.Module):
-    
     def __init__(self, kernel_size=7):
         super(SpatialAttention, self).__init__()
         assert kernel_size in (3, 7), 'kernel size must be 3 or 7'
@@ -37,7 +36,6 @@ class SpatialAttention(nn.Module):
 
 
 class CBAM(nn.Module):
-    
     def __init__(self, in_planes, ratio=16, kernel_size=7):
         super(CBAM, self).__init__()
         self.ca = ChannelAttention(in_planes, ratio)

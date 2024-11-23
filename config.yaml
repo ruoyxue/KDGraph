@@ -46,7 +46,7 @@ VAL:
   NUM_WORKERS: 2
 
 MODEL:
-  NAME: HRNetDetector # SingleHRNetDetector
+  NAME: KDGraph # SingleHRNetDetector
   BACKBONE: hr-w48
   IMG_CH: 3
   PRETRAINED_FLAG: False

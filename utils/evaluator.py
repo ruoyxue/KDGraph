@@ -30,7 +30,6 @@ class APLSEvaluator:
             if not np.isnan(apls):
                 self.image_count += 1
                 self.APLS_total += apls
-
         return
 
     def compute_apls(self, pickle_graph_1, pickle_graph_2, tem_save_path):

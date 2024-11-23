@@ -13,8 +13,21 @@ import (
 	"github.com/dhconnelly/rtreego"
 	"container/heap"
 	"C"
-)
 
+)
+////////////////////////////////////////////////////////
+// for our_dataset
+// The unit of interval is in 'hop' - each hop is 2 meters. 
+// var interval_1 int = 15  // 50 meters for control points (25*1.5=37)
+// var interval_2 float64 = 10.0 // 50 meters for control points  (25*2=50)
+
+// var min_distance_filter float64 = 25.0 // don't consider shortest path shorter than 100.0
+// var prop_step int = 4 // one-to-one matching, if two control points mapped to A,B in the inferred graph, distance between A and B on the graph should greater than '4' hops, each hop is 2 meters.
+
+// var region_size float64 = 448.0 // unit is meter
+// var margin_size float64 = 10.0 // unit is meter 
+// var match_distance float64 = 15.0 // max distance for two nodes to be matched
+///////////////////////////////////////////////////////
 // for spacenet
 var interval_1 int = 15  
 var interval_2 float64 = 10.0
