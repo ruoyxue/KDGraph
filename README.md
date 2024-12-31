@@ -2,7 +2,7 @@
 
 The official code for [KDGraph: A Keypoint Detection Method for Road Graph Extraction from Remote Sensing Images](https://dx.doi.org/10.2139/ssrn.4684597).
 
-## A. KDGraph
+## KDGraph
 
 1. Prepare SpaceNet3 dataset for KDGraph in the **spacenet_transform** directory.
 
@@ -22,7 +22,7 @@ The official code for [KDGraph: A Keypoint Detection Method for Road Graph Extra
 	. main.bash
 	```
 
-## B. SoR dataset
+## SoR dataset
 
 This dataset is collected from 15 cities around the world to evaluate the ability of different road graph extraction methods in handling shadows and occlusions. The resolution is 0.6 m.
 
@@ -30,7 +30,7 @@ This dataset is collected from 15 cities around the world to evaluate the abilit
 Link: https://pan.baidu.com/s/1TtliEMDvaXgg3WGuL3KzLQ 
 Code: 7ddc
 
-## C. Online road detector
+## Online road detector
 
 This is a web application to conduct online road detection task worldwide. The code can be found in https://github.com/ruoyxue/Online-road-detection-application.
 
@@ -39,3 +39,15 @@ This is a web application to conduct online road detection task worldwide. The c
 </p>
 
 The demo video of KDGraph: https://www.youtube.com/watch?v=3bk0pOWXV4M&t=21s.
+
+## Citation
+If you use the KDGraph code, please consider citing the following paper:
+```
+@article{he2024kdgraph,
+  title={KDGraph: A Keypoint Detection Method for Road Graph Extraction from Remote Sensing Images},
+  author={He, Wei and Xue, Ruoyao and Lu, Fangxiao and Xu, Jinjun and Zhang, Hongyan},
+  journal={IEEE Transactions on Geoscience and Remote Sensing},
+  year={2024},
+  publisher={IEEE}
+}
+```
