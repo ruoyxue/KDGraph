@@ -1,6 +1,6 @@
 # KDGraph for Road Graph Extraction
 
-The official code for [KDGraph: A Keypoint Detection Method for Road Graph Extraction from Remote Sensing Images](https://dx.doi.org/10.2139/ssrn.4684597).
+The official code for [KDGraph: A Keypoint Detection Method for Road Graph Extraction from Remote Sensing Images](https://ieeexplore.ieee.org/abstract/document/10812705).
 
 ## KDGraph
 
