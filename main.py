@@ -6,7 +6,7 @@ import torch
 import torch.distributed as dist
 import yaml
 from solver import Solver
-
+from vis_solver import VisSolver
 
 def main(opt):
     with open(opt.config, 'r') as cfg_file:
@@ -41,7 +41,14 @@ def main(opt):
         os.makedirs(os.path.join(exp_path, "pred_graph"))
         solver = Solver(opt, exp_path)
         solver.inference()
-
+    elif opt.mode == 'vis':
+        if torch.cuda.is_available() and torch.cuda.device_count() > 1:
+            raise ValueError("vis mode does not support ddp!")
+        time_stamp = time.strftime("%Y_%m_%d_%H_%M_%S", time.localtime())
+        exp_path = os.path.join(ROOT_PATH, 'feature_vis', f"{time_stamp} ({opt.log})")
+        os.makedirs(exp_path)
+        vis_solver = VisSolver(opt, exp_path)
+        vis_solver.feature_visualise()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

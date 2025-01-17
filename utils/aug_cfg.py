@@ -19,5 +19,3 @@ def test_aug():
     return ProcessingSequential([
         Normalize(mean=mean, std=std)
     ])
-
- 

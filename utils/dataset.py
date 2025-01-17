@@ -54,7 +54,6 @@ class KeypointDetectionDataset(Dataset):
         if self.mode == "test":
             return image, image_name
 
-        
     def get_info_from_idx(self, idx):
         image_info = self.image_info_list[idx]
         image_name = image_info["image_name"]
@@ -108,4 +107,3 @@ class KeypointDetectionDataset(Dataset):
                 if 0 <= location[i, 1] + move_y < output_shape[0]:
                     location[i, 1] += move_y
         return location
-
